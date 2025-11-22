@@ -1,8 +1,8 @@
-let API = "https://hospital.us-east-1.elasticbeanstalk.com/doctors";
+let API = "https://aql5ehwl6g.execute-api.us-east-1.amazonaws.com/prod";
 let doctorsList = [];
 
 async function adddoctor(e) {
-  e.preventDefault();
+  e.preventDefault(); 
   let adddoctorform = document.forms.adddoctorform;
 
   let doc = {
