@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "http://hospital.us-east-1.elasticbeanstalk.com/$1"
+    }
+  ]
+}

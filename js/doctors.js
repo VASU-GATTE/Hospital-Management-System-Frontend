@@ -1,4 +1,4 @@
-let API = "http://hospitalbackend.us-east-1.elasticbeanstalk.com/doctors";
+let API = "/api/doctors";
 let doctorsList = [];
 
 async function adddoctor(e) {
