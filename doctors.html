@@ -1,244 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
 
-  <body class="bg-dark-subtle">
-    <h1 class="h1">Manage Doctors</h1>
-    <div class="container mt-5 d-flex mb-5 gap-3">
-      <form
-        class="form-check w-25 col-6 form-container"
-        name="adddoctorform"
-        onsubmit="adddoctor(event)"
-      >
-        <h2 class="form-control-plaintext text-success font-monospace fw-bold">
-          Add New Doctor
-        </h2>
-        <!-- Doctor Name -->
-        <label for="name" class="col-form-label">Name : </label>
-        <input type="text" name="name" class="form-control" required /><br />
-        <!-- Doctor Email -->
-        <label for="email" class="col-form-label">Email : </label>
-        <input
-          type="text"
-          name="email"
-          class="form-control"
-          placeholder="name@example.com"
-        /><br />
-        <!-- Doctor Gender -->
-        <div class="container gender-container d-flex">
-          <div class="container">
-            <input
-              type="radio"
-              name="gender"
-              value="M"
-              id="M"
-              class="form-check-input"
-              required
-            />
-            <label for="M" class="form-label d-inline">Male</label><br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-dark-subtle">
+  <h1 class="h1">Manage Doctors</h1>
+  <!-- MAIN WRAPPER -->
+<div class="container mt-5 mb-5">
+
+  <div class="row g-3">
+
+    <!-- LEFT SIDE (Add Doctor Form) -->
+    <div class="col-md-4" id="leftFormContainer">
+      <form class="form-check col-8 form-container" name="adddoctorform" onsubmit="adddoctor(event)">
+          <h2 class="form-control-plaintext text-success font-monospace fw-bold">
+            Add New Doctor
+          </h2>
+          <!-- Doctor Name -->
+          <label for="name" class="col-form-label">Name : </label>
+          <input type="text" name="name" class="form-control" required /><br />
+          <!-- Doctor Email -->
+          <label for="email" class="col-form-label">Email : </label>
+          <input type="text" name="email" class="form-control" placeholder="name@example.com" /><br />
+          <!-- Doctor Gender -->
+          <div class="container gender-container d-flex">
+            <div class="container">
+              <input type="radio" name="gender" value="M" id="M" class="form-check-input" required />
+              <label for="M" class="form-label d-inline">Male</label><br />
+            </div>
+            <div class="container">
+              <input type="radio" name="gender" id="F" class="form-check-input" value="F" required />
+              <label for="F" class="form-label">Female</label><br />
+            </div>
           </div>
-          <div class="container">
-            <input
-              type="radio"
-              name="gender"
-              id="F"
-              class="form-check-input"
-              value="F"
-              required
-            />
-            <label for="F" class="form-label">Female</label><br />
-          </div>
-        </div>
-        <!-- Doctor Mobile Number -->
-        <label for="mobile" class="col-form-label">Mobile Number : </label>
-        <input type="text" name="mobile" class="form-control" /><br />
-        <!-- Doctor Specialization -->
-        <label for="specialization" class="form-label">Specialization : </label>
-        <input type="text" class="form-control" name="specialization" />
-        <!-- Doctor Experience Years -->
-        <label for="experience" class="col-form-label"
-          >Experience(In Years) :
-        </label>
-        <input type="number" class="form-control" name="experience" />
-        <!-- Doctor Degrees -->
-        <label for="degrees" class="col-form-label">Degrees : </label>
-        <input type="text" class="form-control" name="degrees" />
-        <!-- Doctor Salary -->
-        <label for="salary" class="form-label">Salary : </label>
-        <input type="number" class="form-control" name="salary" />
-        <!-- Add Doctor Button -->
-        <input
-          type="submit"
-          value="Add Doctor"
-          class="btn btn-success add-doctor-btn"
-        />
-      </form>
-      <div class="container">
-        <form
-          class="form-check align-items-center d-flex flex-column"
-          onsubmit="findDoctor(event)"
-        >
-          <label for="search" class="form-label align-self-start"
-            >Enter Doctor Id :
+          <!-- Doctor Mobile Number -->
+          <label for="mobile" class="col-form-label">Mobile Number : </label>
+          <input type="text" name="mobile" class="form-control" /><br />
+          <!-- Doctor Specialization -->
+          <label for="specialization" class="form-label">Specialization : </label>
+          <input type="text" class="form-control" name="specialization" />
+          <!-- Doctor Experience Years -->
+          <label for="experience" class="col-form-label">Experience(In Years) :
+          </label>
+          <input type="number" class="form-control" name="experience" />
+          <!-- Doctor Degrees -->
+          <label for="degrees" class="col-form-label">Degrees : </label>
+          <input type="text" class="form-control" name="degrees" />
+          <!-- Doctor Salary -->
+          <label for="salary" class="form-label">Salary : </label>
+          <input type="number" class="form-control" name="salary" />
+          <!-- Add Doctor Button -->
+          <input type="submit" value="Add Doctor" class="btn btn-success add-doctor-btn" />
+        </form>
+    </div>
+
+    <!-- RIGHT SIDE (Search + Results + Table) -->
+    <div class="col-md-8" id="rightSection">
+
+      <!-- SEARCH BOX -->
+      <div id="searchBoxContainer">
+         <form class="form-check align-items-center d-flex flex-column" onsubmit="findDoctor(event)">
+          <label for="search" class="form-label align-self-start">Enter Doctor Id :
           </label>
           <input type="text" class="form-control" id="doctorId" />
-          <input
-            type="submit"
-            value="Search"
-            class="btn btn-success m-2 searchbtn"
-          />
+          <input type="submit" value="Search" class="btn btn-success m-2 searchbtn" />
         </form>
-        <div id="ref" class="container">
-          <!-- This container is for showing the finding results from the search bar code inserted from script -->
+      </div>
+
+      <!-- SEARCH RESULT -->
+      <div id="ref" class="mt-3">
+        <!-- Result from findDoctor() -->
+      </div>
+
+      <!-- ALL DOCTORS TABLE -->
+      <div id="alldoctors" class="mt-3">
+        <!-- Table inserted by display() -->
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <!-- Container for Displaying all the Doctors(Table) -->
-        <div
-          class="container p-2 d-flex flex-column align-items-lg-center justify-content-start"
-          id="alldoctors"
-        >
-          <!-- Html Code from the Java Script -->
+        <div class="modal-body">
+          <form name="editdoctorform">
+            <!-- Doctor ID -->
+            <label for="id">Id : </label>
+            <input type="text" name="id" class="form-control" id="edit_id" readonly />
+
+            <!-- Doctor Name -->
+            <label>Name:</label>
+            <input type="text" name="name" class="form-control" id="edit_name" readonly />
+
+            <!-- Doctor Email -->
+            <label>Email:</label>
+            <input type="email" name="email" class="form-control" id="edit_email" required />
+
+            <!-- Mobile Number -->
+            <label>Mobile Number:</label>
+            <input type="text" name="mobile" id="edit_mobile" class="form-control" />
+
+            <!-- Specialization -->
+            <label>Specialization:</label>
+            <input type="text" name="specialization" class="form-control" id="edit_specialization" required />
+
+            <!-- Experience -->
+            <label>Experience (Years):</label>
+            <input type="number" name="experience" class="form-control" id="edit_experience" required />
+
+            <!-- Degrees -->
+            <label>No. of Degrees:</label>
+            <input type="text" name="degrees" class="form-control" id="edit_degrees" required />
+
+            <!-- Salary -->
+            <label>Salary:</label>
+            <input type="number" name="salary" class="form-control" id="edit_salary" />
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="save()">
+            Save changes
+          </button>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-scrollable">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form name="editdoctorform">
-              <!-- Doctor ID -->
-              <label for="id">Id : </label>
-              <input
-                type="text"
-                name="id"
-                class="form-control"
-                id="edit_id"
-                readonly
-              />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="js/doctors.js"></script>
+</body>
 
-              <!-- Doctor Name -->
-              <label>Name:</label>
-              <input
-                type="text"
-                name="name"
-                class="form-control"
-                id="edit_name"
-                readonly
-              />
-
-              <!-- Doctor Email -->
-              <label>Email:</label>
-              <input
-                type="email"
-                name="email"
-                class="form-control"
-                id="edit_email"
-                required
-              />
-
-              <!-- Mobile Number -->
-              <label>Mobile Number:</label>
-              <input
-                type="text"
-                name="mobile"
-                id="edit_mobile"
-                class="form-control"
-              />
-
-              <!-- Specialization -->
-              <label>Specialization:</label>
-              <input
-                type="text"
-                name="specialization"
-                class="form-control"
-                id="edit_specialization"
-                required
-              />
-
-              <!-- Experience -->
-              <label>Experience (Years):</label>
-              <input
-                type="number"
-                name="experience"
-                class="form-control"
-                id="edit_experience"
-                required
-              />
-
-              <!-- Degrees -->
-              <label>No. of Degrees:</label>
-              <input
-                type="text"
-                name="degrees"
-                class="form-control"
-                id="edit_degrees"
-                required
-              />
-
-              <!-- Salary -->
-              <label>Salary:</label>
-              <input
-                type="number"
-                name="salary"
-                class="form-control"
-                id="edit_salary"
-              />
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-              onclick="save()"
-            >
-              Save changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/doctors.js"></script>
-  </body>
 </html>

@@ -5,8 +5,8 @@
 .gender-container{
     padding-left: 50px;
 }
-.add-doctor-btn{
-    margin-left: 70px;
+ .add-doctor-btn{
+    margin-left: 50px;
     margin-top: 15px;
 }
 .h1{
@@ -15,8 +15,8 @@
     font-family: Algerian;
     font-weight: bold;
     font-style:italic;
-    color: crimson;
 }
 .searchbtn{
     
 }
+

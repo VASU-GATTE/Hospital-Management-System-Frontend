@@ -1,4 +1,5 @@
-let API = "/api/doctors";
+// let API = "/api/doctors";
+let API="http://hospital.us-east-1.elasticbeanstalk.com/doctors"
 let doctorsList = [];
 
 async function adddoctor(e) {
@@ -52,6 +53,7 @@ async function display() {
   }
   let table = `
         <h3 class="h3">All Doctor List</h3>
+        <div class="table-responsive">
         <table class="table table-light table-striped-columns text-center">
             <tr>
                 <th>Id</th>
@@ -69,13 +71,14 @@ async function display() {
             </tr>
             ${trs}
         </table>
+        </div>
     `;
   document.getElementById("alldoctors").innerHTML = table;
 }
 display();
 
 async function findDoctor(e) {
-  // e.preventDefault();
+  e.preventDefault();
   let id = document.getElementById("doctorId").value;
   let res = await fetch(`${API}/${id}`, {
     method: "GET",
@@ -98,6 +101,7 @@ async function findDoctor(e) {
         </tr>
         `;
   let table = `
+  <div class="table-responsive">
         <table class="table table-light table-striped-columns text-center">
             <tr>
                 <th>Id</th>
@@ -114,6 +118,7 @@ async function findDoctor(e) {
             </tr>
             ${trs}
         </table>
+        </div>
     `;
 
   document.getElementById("ref").innerHTML = table;
