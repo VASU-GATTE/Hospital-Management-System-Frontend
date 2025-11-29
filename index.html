@@ -1,33 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hospital Management System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+        min-height: 100vh;
+      }
+      .menu-card {
+        transition: 0.3s;
+        border-radius: 18px;
+      }
+      .menu-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      .nav-logo {
+        border-radius: 50%;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar bg-white shadow-sm py-3">
+      <div class="container justify-content-center">
+        <a class="navbar-brand text-center" href="#">
+          <img
+            src="https://t4.ftcdn.net/jpg/08/44/82/55/360_F_844825587_MEoU8odal1uKKTjNOoFa0A4yLyZzJ0gG.jpg"
+            alt="Logo"
+            width="65"
+            height="65"
+            class="nav-logo me-2"
+          />
+          <span class="fs-3 fw-bold text-success">Hospital Management System</span>
+        </a>
+      </div>
+    </nav>
 
-  <nav class="navbar bg-body-tertiary text-center">
-  <div class="container-fluid justify-content-center">
-    <a class="navbar-brand" href="#">
-      <img src="https://t4.ftcdn.net/jpg/08/44/82/55/360_F_844825587_MEoU8odal1uKKTjNOoFa0A4yLyZzJ0gG.jpg" alt="Logo" width="60" height="60" class="d-inline-block align-text-center">
-      <i><b><span class="fs-3">Hospital Management System</b></i></span>
-    </a>
-  </div>
-</nav>
- 
-<div class="d-flex justify-content-center align-items-center flex-column gap-5 m-5">
-    <a href="./doctors.html"><button class="btn btn-success">Manage Doctors</button></a>
-    <a href="./patients.html"><button class="btn btn-dark">Manage Patients</button></a>
-    <a href="./visitors.html"><button class="btn btn-secondary">Manage Visits</button></a>
-</div>
+    <!-- HEADER SECTION -->
+    <div class="container text-center mt-5">
+      <h1 class="fw-bold text-dark">Welcome to the HMS Dashboard</h1>
+      <p class="text-secondary fs-5">
+        Manage your hospital efficiently with streamlined tools for Doctors, Patients & Visitors.
+      </p>
+    </div>
 
+    <!-- MENU SECTION -->
+    <div class="container mt-4">
+      <div class="row justify-content-center g-4">
 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/script.js"></script>
-</body>
+        <div class="col-md-4">
+          <a href="./doctors.html" class="text-decoration-none">
+            <div class="card menu-card p-4 text-center border-0 shadow-sm">
+              <h3 class="fw-bold text-success">Manage Doctors</h3>
+              <p class="text-muted">Add, update or view doctor details</p>
+              <button class="btn btn-success w-100">Go to Doctors</button>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="./patients.html" class="text-decoration-none">
+            <div class="card menu-card p-4 text-center border-0 shadow-sm">
+              <h3 class="fw-bold text-dark">Manage Patients</h3>
+              <p class="text-muted">Register, track or update patient data</p>
+              <button class="btn btn-dark w-100">Go to Patients</button>
+            </div>
+          </a>
+        </div>
+
+        <div class="col-md-4">
+          <a href="./visitors.html" class="text-decoration-none">
+            <div class="card menu-card p-4 text-center border-0 shadow-sm">
+              <h3 class="fw-bold text-secondary">Manage Visitors</h3>
+              <p class="text-muted">Track patient visits & visitor logs</p>
+              <button class="btn btn-secondary w-100">Go to Visitors</button>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -1,9 +1,9 @@
-let API = "/api/doctors";
-// let API="http://hospital.us-east-1.elasticbeanstalk.com/doctors"
+// let API = "/api/doctors";
+let API = "http://hospital.us-east-1.elasticbeanstalk.com/doctors"
 let doctorsList = [];
 
 async function adddoctor(e) {
-  e.preventDefault(); 
+  e.preventDefault();
   let adddoctorform = document.forms.adddoctorform;
 
   let doc = {
@@ -52,9 +52,11 @@ async function display() {
         `;
   }
   let table = `
-        <h3 class="h3">All Doctor List</h3>
+        <h3 class="h3 text-center my-4 fw-bold border-bottom pb-2">Total Doctors List</h3>
+        <div class="container">
+        <div class="card shadow rounded-4 border-0 p-3">
         <div class="table-responsive">
-        <table class="table table-light table-striped-columns text-center">
+        <table class="table table-striped-columns text-center align-middle">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -71,6 +73,8 @@ async function display() {
             </tr>
             ${trs}
         </table>
+        </div>
+        </div>
         </div>
     `;
   document.getElementById("alldoctors").innerHTML = table;
@@ -101,8 +105,10 @@ async function findDoctor(e) {
         </tr>
         `;
   let table = `
+  <div class="container">
+  <div class="card shadow rounded-4 border-0 p-3">
   <div class="table-responsive">
-        <table class="table table-light table-striped-columns text-center">
+        <table class="table table-striped-columns text-center align-middle">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
@@ -118,6 +124,8 @@ async function findDoctor(e) {
             </tr>
             ${trs}
         </table>
+        </div>
+        </div>
         </div>
     `;
 

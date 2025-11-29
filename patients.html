@@ -1,62 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">    
-</head>
-<body>
-
-     <h1 class="h1 fw-bold">Manage Patients</h1>
-     <div class="container mt-5 d-flex mb-5 gap-3">
-    <div class="form-check w-25 col-6 form-container">
-        <h3 class="form-control-plaintext text-primary font-monospace fw-bold">Add New Patient</h3>
-        <div>
-        <!-- Patient Name -->
-        <label for="name" class="form-label">Name : </label>
-        <input type="text" name="name" class="form-control">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage Patients</title>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="bg-light">
+        <!-- HEADER -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+            <div class="container-fluid justify-content-center py-2">
+                <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/3209/3209265.png"
+                        width="55"
+                        height="55"
+                        class="rounded-circle border border-light"
+                    >
+                    <span class="fw-bold fs-3">Manage Patients</span>
+                </a>
+            </div>
+        </nav>
+        <h3 class="h3 fw-bold text-center p-3">
+            Add New Patient
+        </h3>
+        <div class="col-lg-8 mx-auto">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form name="addpatientform" onsubmit="addpatient(event)">
+                        <div class="row g-3">
+                            <!-- ============================
+                         PATIENT DETAILS
+                    ============================== -->
+                            <h5 class="fw-bold border-bottom pb-2">Patient Details</h5>
+                            <div class="col-md-6">
+                                <label class="form-label">Name</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label d-block">Gender</label>
+                                <div class="d-flex gap-3">
+                                    <div>
+                                        <input type="radio" name="Pgender" id="PM">
+                                        <label for="PM">Male</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="Pgender" id="PF">
+                                        <label for="PF">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Age</label>
+                                <input
+                                    type="number"
+                                    name="age"
+                                    class="form-control"
+                                    min="0"
+                                >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Mobile Number</label>
+                                <input type="text" name="mobile" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Registered Date</label>
+                                <input type="date" name="regdate" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Visitors</label>
+                                <input
+                                    type="number"
+                                    name="visitors"
+                                    class="form-control"
+                                    min="0"
+                                >
+                            </div>
+                            <!-- ============================
+                         DOCTOR DETAILS (COMBINED)
+                    ============================== -->
+                            <h5 class="fw-bold border-bottom pt-3 pb-2">Doctor Details</h5>
+                            <div class="col-md-6">
+                                <label class="form-label">Doctor Name</label>
+                                <input type="text" name="Dname" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Doctor Email</label>
+                                <input type="email" name="Demail" class="form-control">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label d-block">Doctor Gender</label>
+                                <div class="d-flex gap-3">
+                                    <div>
+                                        <input type="radio" name="Dgender" id="DM">
+                                        <label for="DM">Male</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="Dgender" id="DF">
+                                        <label for="DF">Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Mobile</label>
+                                <input type="text" name="Dmobile" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Specialization</label>
+                                <input type="text" name="specialization" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Experience</label>
+                                <input
+                                    type="number"
+                                    name="experience"
+                                    class="form-control"
+                                    min="0"
+                                >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Degrees</label>
+                                <input type="text" name="degrees" class="form-control">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Salary</label>
+                                <input
+                                    type="number"
+                                    name="salary"
+                                    class="form-control"
+                                    min="0"
+                                >
+                            </div>
+                        </div>
+                        <!-- ============================
+                     CENTERED BUTTON
+                ============================== -->
+                        <div class="text-center mt-4">
+                            <button class="btn btn-success px-5 py-2 fw-bold">
+                                Add Patient
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div>
-        <!-- Patient Email -->
-        <label for="email" class="form-label">Email : </label>
-        <input type="text" name="email" class="form-control mb-2" placeholder="name@example.com">
-        </div><!-- Patient Gender -->
-        <div class="container gender-container d-flex ">
-        <div class="container">
-        <input type="radio" name="gender" value="male" id="male" class="form-check-input">
-        <label for="male" class="form-label d-inline">Male</label>
-        </div>
-        <div class="container">
-        <input type="radio" name="gender" id="female" class="form-check-input">
-        <label for="female" class=" form-label">Female</label>
-        </div>
-        </div>
-        <!-- Patient Age -->
-        <label for="age" class="form-label">Age : </label>
-        <input type="number" class="form-control">
-        <!-- Patient Mobile Number -->
-        <label for="mobile" class="col-form-label">Mobile Number : </label>
-        <input type="text" name="" id="" class="form-control">
-        <!-- Patient Registered Date -->
-        <label for="regdate" class="col-form-label">Registered Date : </label>
-        <input type="date" class="form-control">
-        <!-- Patient Visitors -->
-        <label for="visitors" class="col-form-label">Visitors for This Patient : </label>
-        <input type="number" class="form-control">
-
-
-        <!-- Add Patient Button -->
-        <input type="button" value="Add Doctor" class="btn btn-success add-doctor-btn">
-    </div>
-    <!-- Container for Displaying all the Patients(Table) -->
-    <div class="container bg-primary">
-        <!-- Inner Html From the Script File -->
-    </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="js/patients.js"></script>
-</body>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Axios -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- Custom JS -->
+        <script src="js/patients.js"></script>
+    </body>
 </html>
