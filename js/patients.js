@@ -1,5 +1,5 @@
-// let API = "/api/patients";
-const API = "http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/patients";
+const API = "/api/patients";
+// const API = "http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/patients";
 
 let patientsList = [];
 
