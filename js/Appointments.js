@@ -1,9 +1,9 @@
-const API = "http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/visits";
-const DOC_API="http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/doctors";
-const PAT_API="http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/patients";
-// const DOC_API="/api/doctors";
-// const PAT_API="/api/patients";
-// const API = "/api/visits";
+// const API = "http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/visits";
+// const DOC_API="http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/doctors";
+// const PAT_API="http://hospital-mangement-system-env.eba-d2jnitqb.us-east-1.elasticbeanstalk.com/patients";
+const DOC_API="/api/doctors";
+const PAT_API="/api/patients";
+const API = "/api/visits";
 
 let visits=[];
 
