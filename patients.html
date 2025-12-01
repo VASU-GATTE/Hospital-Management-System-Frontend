@@ -22,138 +22,140 @@
                 </a>
             </div>
         </nav>
-        <h3 class="h3 fw-bold text-center p-3">
-            Add New Patient
-        </h3>
-        <div class="col-lg-8 mx-auto">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <form name="addpatientform" onsubmit="addpatient(event)">
-                        <div class="row g-3">
-                            <!-- ============================
-                         PATIENT DETAILS
-                    ============================== -->
-                            <h5 class="fw-bold border-bottom pb-2">Patient Details</h5>
-                            <div class="col-md-6">
+        <div class="container my-5">
+            <div class="row g-4 justify-content-center">
+                <!-- LEFT SIDE — ADD PATIENT FORM -->
+                <div class="col-lg-4">
+                    <div class="card shadow rounded-4 border-0">
+                        <div class="card-body p-4">
+                            <h4 class="text-primary fw-bold mb-3 text-center">➕ Add New Patient</h4>
+                            <form name="addpatientform" onsubmit="addpatient(event)">
                                 <label class="form-label">Name</label>
-                                <input type="text" name="name" class="form-control">
-                            </div>
-                            <div class="col-md-6">
+                                <input
+                                    name="name"
+                                    type="text"
+                                    class="form-control mb-3"
+                                    required
+                                >
                                 <label class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label d-block">Gender</label>
-                                <div class="d-flex gap-3">
+                                <input name="email" type="email" class="form-control mb-3">
+                                <label class="form-label">Gender</label>
+                                <div class="d-flex gap-4 mb-3">
                                     <div>
-                                        <input type="radio" name="Pgender" id="PM">
-                                        <label for="PM">Male</label>
+                                        <input
+                                            type="radio"
+                                            name="gender"
+                                            value="M"
+                                            class="form-check-input"
+                                            required
+                                        >
+                                        <label class="ms-1">Male</label>
                                     </div>
                                     <div>
-                                        <input type="radio" name="Pgender" id="PF">
-                                        <label for="PF">Female</label>
+                                        <input
+                                            type="radio"
+                                            name="gender"
+                                            value="F"
+                                            class="form-check-input"
+                                            required
+                                        >
+                                        <label class="ms-1">Female</label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
                                 <label class="form-label">Age</label>
                                 <input
-                                    type="number"
                                     name="age"
-                                    class="form-control"
+                                    type="number"
                                     min="0"
+                                    class="form-control mb-3"
                                 >
-                            </div>
-                            <div class="col-md-6">
                                 <label class="form-label">Mobile Number</label>
-                                <input type="text" name="mobile" class="form-control">
-                            </div>
-                            <div class="col-md-6">
+                                <input name="mobile" type="text" class="form-control mb-3">
                                 <label class="form-label">Registered Date</label>
-                                <input type="date" name="regdate" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Visitors</label>
+                                <input name="regdate" type="date" class="form-control mb-3">
+                                <button class="btn btn-success w-100 py-2 fw-bold">
+                                    Add Patient
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- RIGHT SIDE — PATIENT SEARCH -->
+                <div class="col-lg-8">
+                    <!-- SEARCH BAR CARD -->
+                    <div class="card shadow rounded-4 border-0 mb-4">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold text-primary mb-3">🔍 Search Patients</h5>
+                            <div class="input-group">
                                 <input
-                                    type="number"
-                                    name="visitors"
+                                    id="patientSearchInput"
+                                    type="text"
                                     class="form-control"
-                                    min="0"
+                                    placeholder="Search by Name, Email, ID, Mobile..."
                                 >
-                            </div>
-                            <!-- ============================
-                         DOCTOR DETAILS (COMBINED)
-                    ============================== -->
-                            <h5 class="fw-bold border-bottom pt-3 pb-2">Doctor Details</h5>
-                            <div class="col-md-6">
-                                <label class="form-label">Doctor Name</label>
-                                <input type="text" name="Dname" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Doctor Email</label>
-                                <input type="email" name="Demail" class="form-control">
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label d-block">Doctor Gender</label>
-                                <div class="d-flex gap-3">
-                                    <div>
-                                        <input type="radio" name="Dgender" id="DM">
-                                        <label for="DM">Male</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" name="Dgender" id="DF">
-                                        <label for="DF">Female</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Mobile</label>
-                                <input type="text" name="Dmobile" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Specialization</label>
-                                <input type="text" name="specialization" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Experience</label>
-                                <input
-                                    type="number"
-                                    name="experience"
-                                    class="form-control"
-                                    min="0"
-                                >
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Degrees</label>
-                                <input type="text" name="degrees" class="form-control">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Salary</label>
-                                <input
-                                    type="number"
-                                    name="salary"
-                                    class="form-control"
-                                    min="0"
-                                >
+                                <button class="btn btn-primary px-4" onclick="findpatient(event)">
+                                    Search
+                                </button>
                             </div>
                         </div>
-                        <!-- ============================
-                     CENTERED BUTTON
-                ============================== -->
-                        <div class="text-center mt-4">
-                            <button class="btn btn-success px-5 py-2 fw-bold">
-                                Add Patient
-                            </button>
-                        </div>
-                    </form>
+                    </div>
+                    <!-- SEARCH RESULTS TABLE WILL RENDER HERE -->
+                    <div class="card shadow border-0 d-flex gap-3">
+                        <div class="card-body" id="patientResults">
+                            <!-- JS inserts patient table here --></div>
+                        <div class="card-body" id="allpatients">
+                            <!--All Patients Table Inserted from the Script file  --></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- Bootstrap JS -->
+
+        <!-- MODAL -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content rounded-4">
+          <div class="modal-header bg-primary text-white rounded-top-4">
+            <h5 class="modal-title">Edit Doctor</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <div class="modal-body">
+            <form name="editpatientform">
+              <label class="form-label">ID</label>
+              <input id="edit_id" name="id" type="text" class="form-control mb-3" readonly />
+
+              <label class="form-label">Name</label>
+              <input id="edit_name" name="name" type="text" class="form-control mb-3" readonly />
+
+              <label class="form-label">Email</label>
+              <input id="edit_email" name="email" type="email" class="form-control mb-3" />
+
+              <label class="form-label">Mobile Number</label>
+              <input id="edit_mobile" name="mobile" type="text" class="form-control mb-3" />
+
+              <label class="form-label">Age</label>
+              <input id="edit_age" name="age" type="number" class="form-control mb-3" />    
+
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button class="btn btn-primary" data-bs-dismiss="modal" onclick="save()">Save Changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Axios -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <!-- Custom JS -->
+        <!-- your scripts -->
         <script src="js/patients.js"></script>
     </body>
 </html>
